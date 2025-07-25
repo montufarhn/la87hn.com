@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La 87 - La Primera 87.5 FM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --amarillo: #ffb000;
+      --verde: #00924c;
+      --azul-oscuro: #002e4d;
+      --azul-claro: #38bdf8;
+      --blanco: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f0f8f4;
+      color: var(--azul-oscuro);
+    }
+
+    header {
+      background-color: var(--verde);
+      color: var(--blanco);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header img {
+      max-width: 200px;
+    }
+
+    header h1 {
+      margin: 1rem 0 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    .boton-vivo {
+      background-color: var(--amarillo);
+      color: var(--azul-oscuro);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .seccion-oscura {
+      background-color: var(--azul-oscuro);
+      color: var(--blanco);
+    }
+
+    .programacion table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .programacion th,
+    .programacion td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    .programacion th {
+      background-color: var(--verde);
+      color: white;
+    }
+
+    .whatsapp {
+      background-color: #25d366;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      margin: 2rem auto;
+      max-width: 300px;
+      font-weight: bold;
+    }
+
+    .facebook-feed {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .contacto-formulario {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .contacto-formulario form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contacto-formulario label {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .contacto-formulario input,
+    .contacto-formulario textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .contacto-formulario button {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background-color: var(--verde);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--verde);
+      color: var(--blanco);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="laprimera_logo_trans.png" alt="La 87 Logo" />
+    <h1>La 87 - La Primera</h1>
+    <p>87.5 FM - La radio que conecta con el pueblo</p>
+    <button class="boton-vivo">Escúchanos en vivo</button>
+  </header>
+
+  <section class="seccion-oscura">
+    <h2>En Vivo Ahora</h2>
+    <p><strong>[Nombre del programa]</strong></p>
+    <audio id="radioPlayer" autoplay>
+      <source src="https://tu-stream-audio.com/stream" type="audio/mpeg">
+      Tu navegador no soporta el audio en vivo.
+    </audio>
+  </section>
+
+  <section class="whatsapp">
+    <a href="https://wa.me/50412345678" target="_blank" style="color:white; text-decoration:none;">
+      💬 Manda tu saludo por WhatsApp
+    </a>
+  </section>
+
+  <section class="programacion">
+    <h2>Programación</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>06:00 AM</td>
+          <td>Despierta Pueblo</td>
+          <td>Despierta Pueblo</td>
+          <td>Despierta Pueblo</td>
+          <td>Despierta Pueblo</td>
+          <td>Despierta Pueblo</td>
+        </tr>
+        <tr>
+          <td>08:00 AM</td>
+          <td>La Voz del Campo</td>
+          <td>La Voz del Campo</td>
+          <td>La Voz del Campo</td>
+          <td>La Voz del Campo</td>
+          <td>La Voz del Campo</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Nosotros</h2>
+    <p>La 87 - La Primera 87.5 FM es una emisora comprometida con la comunidad, llevando entretenimiento, noticias, cultura y alegría a cada rincón del campo y la ciudad.</p>
+  </section>
+
+  <section class="facebook-feed">
+    <h2>Últimas publicaciones</h2>
+    <div class="fb-page" data-href="https://www.facebook.com/tuPaginaOficial" data-tabs="timeline" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+      <blockquote cite="https://www.facebook.com/tuPaginaOficial" class="fb-xfbml-parse-ignore">
+        <a href="https://www.facebook.com/tuPaginaOficial">La 87 - La Primera</a>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="contacto-formulario">
+    <h2>Contacto</h2>
+    <form action="#" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required />
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 La 87 - La Primera. Todos los derechos reservados.
+  </footer>
+
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0" nonce="xyz123"></script>
+</body>
+</html>
