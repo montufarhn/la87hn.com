@@ -155,7 +155,17 @@
 
   <section class="seccion-oscura">
     <h2>Dale Play para disfrutar</h2>
-<iframe src="https://zeno.fm/player/la-87-la-primera" width="575" height="250" frameborder="0" scrolling="no"></iframe><a href="https://la87hn.com/" target="_blank" style="display: block; font-size: 0.9em; line-height: 10px;">La 87, La primera</a>    </audio>
+<link href="https://sistemahost.com/playergenerator/css/myCast.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<div class="myCast" id="player"></div>
+<script src="https://sistemahost.com/playergenerator/js/myCast.min.js"></script>
+
+<script> 
+$('#player').myCast({ 
+    URL: 'https://https://stream.zeno.fm/tr4u2w53sxhvv', version: 'icecast', mount_point: '', vertical_layout: false, 
+    bg: 'green', accent: 'blue', autoplay: true, }); 
+</script>
   </section>
 
   <section class="whatsapp">
