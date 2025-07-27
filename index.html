@@ -4,13 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La 87, La Primera - 87.5 FM</title>
+  
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+
+  <!-- SEO Meta -->
+  <meta name="description" content="La 87 - La Primera. Escúchanos en vivo por la 87.5 FM. Música, noticias y cultura para toda Honduras.">
+  <meta property="og:title" content="La 87 - La Primera">
+  <meta property="og:description" content="Escúchanos en vivo por la 87.5 FM. Música, noticias y cultura para toda Honduras.">
+  <meta property="og:image" content="img/laprimera_logo_trans512.png">
+  <meta property="og:url" content="https://la87hn.com">
+  <meta name="twitter:card" content="summary_large_image">
+
   <style>
     :root {
       --amarillo: #ffb000;
       --verde: #00924c;
       --azul-oscuro: #002e4d;
-      --azul-claro: #38bdf8;
       --blanco: #ffffff;
     }
 
@@ -19,6 +32,17 @@
       font-family: 'Open Sans', sans-serif;
       background-color: #f0f8f4;
       color: var(--azul-oscuro);
+      animation: fadeIn 1s ease-in;
+      background-image: url('img/hojas-bg.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     header {
@@ -52,6 +76,12 @@
       font-size: 1.2rem;
       cursor: pointer;
       margin-top: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .boton-vivo:hover {
+      background-color: #ffaa00;
+      transform: scale(1.03);
     }
 
     section {
@@ -61,8 +91,9 @@
     }
 
     .seccion-oscura {
-      background-color: var(--azul-oscuro);
+      background-color: rgba(0, 46, 77, 0.9);
       color: var(--blanco);
+      border-radius: 8px;
     }
 
     .programacion table {
@@ -94,48 +125,27 @@
       font-weight: bold;
     }
 
+    .whatsapp a {
+      color: white;
+      text-decoration: none;
+    }
+
     .facebook-feed {
       margin-top: 3rem;
       text-align: center;
     }
 
     .contacto-formulario {
-      background-color: #ffffff;
+      background-color: #ffffffdd;
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 600px;
+      max-width: 800px;
       margin: 2rem auto;
     }
 
-    .contacto-formulario form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contacto-formulario label {
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-
-    .contacto-formulario input,
-    .contacto-formulario textarea {
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-
-    .contacto-formulario button {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background-color: var(--verde);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1.1rem;
+    .contacto-formulario h2 {
+      text-align: center;
     }
 
     footer {
@@ -155,14 +165,12 @@
 
   <section class="seccion-oscura">
     <h2>Dale Play para disfrutar</h2>
-			<!-- PLAYER --> 
-			<iframe width="100%" height="122" src="https://players.rcast.net/fantastic/68574" frameborder="0" scrolling="no" allow="autoplay"></iframe> 
-			<div style="overflow:hidden; height:0px; width:0px;"><a href="https://la87hn.com" title="La 87, La Primera">La87HN.com</a></div>
-			<!-- END EMBEDDED PLAYER -->
+    <iframe width="100%" height="122" src="https://players.rcast.net/fantastic/68574" frameborder="0" scrolling="no" allow="autoplay"></iframe> 
+    <div style="overflow:hidden; height:0px; width:0px;"><a href="https://la87hn.com" title="La 87, La Primera">La87HN.com</a></div>
   </section>
 
   <section class="whatsapp">
-    <a href="https://wa.me/50432639354?text=Hola,%20quiero%20pedir%20mi%20cancion%20favorita%20por%20favor." target="_blank" style="color:white; text-decoration:none;">
+    <a href="https://wa.me/50432639354?text=Hola,%20quiero%20pedir%20mi%20cancion%20favorita%20por%20favor." target="_blank">
       💬 Manda tu saludo por WhatsApp
     </a>
   </section>
@@ -170,6 +178,7 @@
   <section class="programacion">
     <h2>Programación</h2>
     <p>Variada para todos los gustos!</p>
+    <!-- Aquí puedes añadir la tabla de programación si lo deseas -->
   </section>
 
   <section>
@@ -188,7 +197,11 @@
 
   <section class="contacto-formulario">
     <h2>Contacto</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf-nEYTnOug9yV_qd_ioYiiypzUgF414M0TZmmWuRvFrEeV1A/viewform?embedded=true" width="640" height="718" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLSf-nEYTnOug9yV_qd_ioYiiypzUgF414M0TZmmWuRvFrEeV1A/viewform?embedded=true" 
+      style="width: 100%; height: 720px; border: none;" 
+      allowfullscreen>
+    </iframe>
   </section>
 
   <footer>
