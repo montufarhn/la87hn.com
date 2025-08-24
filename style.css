@@ -1,0 +1,142 @@
+:root {
+  --amarillo: #ffb000;
+  --verde: #00924c;
+  --azul-oscuro: #002e4d;
+  --blanco: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f0f8f4;
+  color: var(--azul-oscuro);
+  animation: fadeIn 1s ease-in;
+  background-image: url('img/hojas-bg.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+header {
+  background-color: var(--verde);
+  color: var(--blanco);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header img {
+  max-width: 200px;
+}
+
+header h1 {
+  margin: 1rem 0 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+section {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.seccion-oscura {
+  background-color: rgba(0, 46, 77, 0.9);
+  color: var(--blanco);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.seccion-blanca {
+  background-color: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+}
+
+.programacion table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.programacion th,
+.programacion td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.programacion th {
+  background-color: var(--verde);
+  color: white;
+}
+
+.player {
+  width: 100%;
+  height: 122px;
+  border-radius: 8px;
+}
+
+.whatsapp {
+  background-color: #25d366;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 300px;
+  font-weight: bold;
+}
+
+.whatsapp a {
+  color: white;
+  text-decoration: none;
+}
+
+.facebook-feed {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.contacto-formulario {
+  background-color: #ffffffdd;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.contacto-formulario h2 {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--verde);
+  color: var(--blanco);
+}
+
+footer a {
+  color: var(--amarillo);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
