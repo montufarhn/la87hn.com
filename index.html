@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-HN">
 <head>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPECQ1F776"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-RPECQ1F776');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPECQ1F776"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RPECQ1F776');
+  </script>
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,166 +30,27 @@
   <meta name="description" content="La 87 - La Primera. Escúchanos en vivo por la 87.7 FM. Música, noticias y cultura para toda Honduras.">
   <meta property="og:title" content="La 87 - La Primera">
   <meta property="og:description" content="Escúchanos en vivo por la 87.7 FM. Música, noticias y cultura para toda Honduras.">
-  <meta property="og:image" content="img/laprimera_logo_trans512.png">
+  <meta property="og:image" content="img/laprimera_logo_trans512.webp">
   <meta property="og:url" content="https://la87hn.com">
   <meta name="twitter:card" content="summary_large_image">
 
-  <style>
-    :root {
-      --amarillo: #ffb000;
-      --verde: #00924c;
-      --azul-oscuro: #002e4d;
-      --blanco: #ffffff;
-    }
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f0f8f4;
-      color: var(--azul-oscuro);
-      animation: fadeIn 1s ease-in;
-      background-image: url('img/hojas-bg.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    header {
-      background-color: var(--verde);
-      color: var(--blanco);
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header img {
-      max-width: 200px;
-    }
-
-    header h1 {
-      margin: 1rem 0 0.5rem;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-    }
-
-    .boton-vivo {
-      background-color: var(--amarillo);
-      color: var(--azul-oscuro);
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      margin-top: 1rem;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .boton-vivo:hover {
-      background-color: #ffaa00;
-      transform: scale(1.03);
-    }
-
-    section {
-      padding: 2rem 1rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .seccion-oscura {
-      background-color: rgba(0, 46, 77, 0.9);
-      color: var(--blanco);
-      border-radius: 8px;
-    }
-
-    .seccion-blanca {
-      background-color: rgba(255, 255, 255, 0.92);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.08);
-      margin-bottom: 2rem;
-    }
-
-    .programacion table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    .programacion th,
-    .programacion td {
-      border: 1px solid #ddd;
-      padding: 0.5rem;
-      text-align: center;
-    }
-
-    .programacion th {
-      background-color: var(--verde);
-      color: white;
-    }
-
-    .whatsapp {
-      background-color: #25d366;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      border-radius: 8px;
-      margin: 2rem auto;
-      max-width: 300px;
-      font-weight: bold;
-    }
-
-    .whatsapp a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .facebook-feed {
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .contacto-formulario {
-      background-color: #ffffffdd;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 800px;
-      margin: 2rem auto;
-    }
-
-    .contacto-formulario h2 {
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: var(--verde);
-      color: var(--blanco);
-    }
-  </style>
 </head>
 <body>
   <header>
-    <img src="img/laprimera_logo_trans512.png" alt="La 87 Logo" />
+    <picture>
+      <source srcset="img/laprimera_logo_trans512.webp" type="image/webp">
+      <img src="img/laprimera_logo_trans512.png" alt="Logo de La 87, La Primera 87.7 FM" />
+    </picture>
     <h1>La 87 - La Primera</h1>
     <p>87.7 FM</p>
   </header>
 
   <section class="seccion-oscura">
-    <h2>Dale Play</h2>
-    <iframe width="100%" height="122" src="https://players.rcast.net/fantastic/68574" frameborder="0" scrolling="no" allow="autoplay"></iframe> 
-    <div style="overflow:hidden; height:0px; width:0px;"><a href="https://la87hn.com" title="La 87, La Primera">La87HN.com</a></div>
+    <h2>🎶 Dale Play</h2>
+    <iframe class="player" src="https://players.rcast.net/fantastic/68574" frameborder="0" scrolling="no" allow="autoplay"></iframe>
   </section>
 
   <section class="whatsapp">
@@ -212,7 +72,7 @@
 
   <section class="facebook-feed">
     <h2>Últimas publicaciones</h2>
-    <div class="fb-page" data-href="https://www.facebook.com/la87laprimera" data-tabs="timeline" data-width="500" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+    <div class="fb-page" data-href="https://www.facebook.com/la87laprimera" data-tabs="timeline" data-width="100%" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
       <blockquote cite="https://www.facebook.com/la87laprimera" class="fb-xfbml-parse-ignore">
         <a href="https://www.facebook.com/la87laprimera">La 87 - La Primera</a>
       </blockquote>
@@ -220,7 +80,7 @@
   </section>
 
   <section class="contacto-formulario">
-    <h2>Contactanos llenando el formulario</h2>
+    <h2>Contáctanos llenando el formulario</h2>
     <iframe 
       src="https://docs.google.com/forms/d/e/1FAIpQLSf-nEYTnOug9yV_qd_ioYiiypzUgF414M0TZmmWuRvFrEeV1A/viewform?embedded=true" 
       style="width: 100%; height: 720px; border: none;" 
@@ -229,77 +89,14 @@
   </section>
 
   <footer>
-    &copy; 2025 La 87 - La Primera. Todos los derechos reservados.
+    &copy; 2025 La 87 - La Primera. Todos los derechos reservados. <br>
+    📱 <a href="https://play.google.com/store/apps/details?id=com.la87hn.la87laprimera" target="_blank">Descarga nuestra App para Android</a>
   </footer>
 
   <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0" nonce="xyz123"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
 
   <!-- Pop-up Android -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const isAndroid = /Android/i.test(navigator.userAgent);
-
-    if (isAndroid && !localStorage.getItem('androidPopupDismissed')) {
-      const popup = document.createElement('div');
-      popup.innerHTML = `
-        <div id="android-popup" style="
-          position: fixed;
-          bottom: -150px;
-          left: 50%;
-          transform: translateX(-50%);
-          background-color: #00924c;
-          color: white;
-          padding: 1.2rem;
-          border-radius: 12px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-          z-index: 9999;
-          max-width: 90%;
-          text-align: center;
-          font-family: 'Open Sans', sans-serif;
-          opacity: 0;
-          transition: all 0.6s ease;
-        ">
-          📱 ¡Escucha <strong>La 87</strong> con nuestra App para Android!<br/>
-          <a href="https://play.google.com/store/apps/details?id=com.la87hn.la87laprimera" target="_blank" style="color: #ffb000; font-weight: bold; display: inline-block; margin-top: 0.8rem;">
-            Descargar ahora desde Google Play
-          </a><br/>
-          <button style="
-            margin-top: 10px;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 0.9rem;
-            text-decoration: underline;
-            cursor: pointer;
-          ">No mostrar de nuevo</button>
-        </div>
-      `;
-
-      const popupBox = popup.querySelector('#android-popup');
-      const dismissButton = popup.querySelector('button');
-
-      dismissButton.addEventListener('click', () => {
-        localStorage.setItem('androidPopupDismissed', 'true');
-        popup.remove();
-      });
-
-      document.body.appendChild(popup);
-
-      // Mostrar el popup con animación
-      setTimeout(() => {
-        popupBox.style.bottom = "20px";
-        popupBox.style.opacity = "1";
-      }, 300);
-
-      // Cerrar automáticamente después de 15 segundos
-      setTimeout(() => {
-        if (!localStorage.getItem('androidPopupDismissed')) {
-          popup.remove();
-        }
-      }, 15000);
-    }
-  });
-</script>
+  <script src="popup.js"></script>
 </body>
 </html>
