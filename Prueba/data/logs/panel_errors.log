@@ -1,0 +1,9 @@
+[01-Sep-2025 18:46:04 Europe/Berlin] PHP Warning:  Undefined array key "e" in D:\Documents\GitHub\la87hn.com\Prueba\panel\channels.edit.php on line 75
+[01-Sep-2025 18:46:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function lib\imagecreatefrompng() in D:\Documents\GitHub\la87hn.com\Prueba\inc\lib\ImageResize.php:102
+Stack trace:
+#0 D:\Documents\GitHub\la87hn.com\Prueba\inc\lib\ImageResize.php(64): lib\ImageResize->openImage('data/images/log...')
+#1 D:\Documents\GitHub\la87hn.com\Prueba\panel\channels.edit.php(100): lib\ImageResize->__construct('data/images/log...')
+#2 D:\Documents\GitHub\la87hn.com\Prueba\panel\channels.php(29): require('D:\\Documents\\Gi...')
+#3 D:\Documents\GitHub\la87hn.com\Prueba\panel\index.php(88): require('D:\\Documents\\Gi...')
+#4 {main}
+  thrown in D:\Documents\GitHub\la87hn.com\Prueba\inc\lib\ImageResize.php on line 102
