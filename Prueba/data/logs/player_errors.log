@@ -1,3 +1,0 @@
-[1.9.2025-18:40] FATAL ERROR: Call to undefined function lib\imagecreatefromjpeg()
-[1.9.2025-18:45] CURL Request "https://itunes.apple.com/search?term=La%2087&format=json&media=music&entity=song&results=1&start=0" failed! LOG: Operation timed out after 5002 milliseconds with 0 bytes received
-[1.9.2025-18:45] FATAL ERROR: Call to undefined function lib\imagecreatefromjpeg()
