@@ -1,0 +1,15 @@
+{
+  "name": "La 87 - La Primera",
+  "short_name": "La 87 FM",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#27ae60",
+  "icons": [
+    {
+      "src": "assets/laprimera_logo_trans512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fdfdfd;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  background: linear-gradient(90deg, #f39c12, #27ae60);
+  padding: 20px;
+  color: white;
+}
+
+header .logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.player {
+  margin: 20px;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+.controls button {
+  background: #27ae60;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.controls input[type=range] {
+  width: 200px;
+  margin-left: 15px;
+}
+
+.social {
+  margin: 20px;
+}
+
+.social a {
+  margin: 0 10px;
+  font-size: 30px;
+  color: #333;
+  text-decoration: none;
+}
+
+.social a:hover {
+  color: #27ae60;
+}
+
+/* Carrusel de patrocinadores - FIX: z-index */
+.carousel-container {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background: white;
+  z-index: 0;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin: 10px;
+  flex-shrink: 0;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99999 !important;
+  pointer-events: auto;
+  background: rgba(243, 156, 18, 0.9);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background: rgba(39, 174, 96, 0.95);
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La 87 - La Primera 87.7 FM</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon y manifest -->
+  <link rel="icon" href="assets/laprimera_logo_trans512.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Fuente e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img src="assets/laprimera_logo_trans512.png" alt="Logo La 87" class="logo">
+    <h1>La 87 - La Primera 87.7 FM</h1>
+    <p>El Progreso, Yoro, Honduras</p>
+  </header>
+
+  <main>
+    <section class="player">
+      <audio id="player" autoplay></audio>
+      <div class="controls">
+        <button id="playPause"><i class="fas fa-pause"></i></button>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+      </div>
+    </section>
+
+    <section class="social">
+      <a href="https://wa.me/50432639354" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/la87laprimera/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/la87laprimera" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/la87fm" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    </section>
+
+    <section class="sponsors">
+      <h2>Patrocinadores</h2>
+      <div class="carousel-container">
+        <button class="prev">&#10094;</button>
+        <div class="carousel">
+          <img src="assets/laprimera_logo_trans512.png" alt="Patrocinador 1">
+          <img src="assets/laprimera_logo_trans512.png" alt="Patrocinador 2">
+          <img src="assets/laprimera_logo_trans512.png" alt="Patrocinador 3">
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
