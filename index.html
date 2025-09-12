@@ -1,129 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La 87, La Primera</title>
-    <link rel="icon" type="image/png" href="img/cover.png" />
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" href="css/style.css">    
-    <link rel="manifest" href="/manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La 87, La Primera</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/laprimera_logo_trans512.png">
 </head>
-
 <body>
+  <header>
+    <img src="assets/laprimera_logo_trans512.png" alt="Logo La 87, La Primera" class="logo">
+    <h1>La 87, La Primera</h1>
+    <p>El Progreso, Yoro - Honduras</p>
+  </header>
 
-    <div class="cover-site">
-        <div id="bgCover"></div>
-        <div class="bg-mask"></div>
-    </div>
-    <main>
-        <section id="player">
-            <div class="container">
-                <div class="row web-player">
-                    <div class="col-12 col-lg-10">
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <div class="cover-album">
-                                    <div id="currentCoverArt"></div>
-                                    <div class="watermark"></div>
-                                </div>
-                            </div>
-                            <div class="col-12 ml-md-auto col-md-6">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="info-current-song">
-                                            <h2 id="currentSong" class="current-song text-uppercase">Canción</h2>
-                                            <h3 id="currentArtist" class="current-artist text-captalize">Artista</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class="play-pause col-12 col-md-6 text-center">
-                                                <button  type="button" class="btn-play" onclick="togglePlay()">
-                                                    <i id="playerButton" class="fa fa-play"></i> <span id="buttonPlay">PLAY</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 col-md-6 text-center">
-                                                <div class="row volume-control">
-                                                    <div class="volume-icon col-1">
-                                                        <i class="fa fa-volume-up"></i>
-                                                    </div>
-                                                    <div class="volume-slide col-10 text-center">       
-                                                        <input type="range" id="volume" step="1" min="0" max="100" value="100" onchange="updateVolume(this.value)">
-                                                        <label for="volume">Volume:</label>
-                                                        <span id="volIndicator">100</span> %
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                        </div>
+  <main>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row historic hidden">
-                    <div class="col-12">
-                        <h2>RECIENTES</h2>
-                        <div class="row" id="historicSong">
-                            <article class="col-12 col-md-6">
-                                <div class="cover-historic" id="cover-historic-1"></div>
-                                <div class="music-info">
-                                    <div class="song">Canción</div>
-                                    <div class="artist">Artista</div>
-                                </div>
-                            </article>
-                            <article class="col-12 col-md-6">
-                                <div class="cover-historic" id="cover-historic-2"></div>
-                                <div class="music-info">
-                                    <div class="song">Canción</div>
-                                    <div class="artist">Artista</div>
-                                </div>
-                            </article>                              
-                        </div>
-                    </div>
-                </div>
-        </section>
-    </main>
-    <div class="modal fade" id="modalLyrics" tabindex="-1" role="dialog" aria-labelledby="lyricsSong" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="lyricsSong">Letra</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                
-                <div class="modal-body" id="lyric"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
+    <!-- Carrusel de patrocinadores -->
+    <section id="sponsors">
+      <h2>Anunciate con nosotros</h2>
+      <div class="carousel-container">
+        <button class="prev">&#10094;</button>
+        <div class="carousel">
+          <img src="assets/sponsors/patrocinador1.png" alt="Patrocinador 1">
+          <img src="assets/sponsors/patrocinador2.png" alt="Patrocinador 2">
+          <img src="assets/sponsors/patrocinador3.png" alt="Patrocinador 3">
+          <img src="assets/sponsors/patrocinador4.png" alt="Patrocinador 4">
+          <img src="assets/sponsors/patrocinador5.png" alt="Patrocinador 5">
+          <img src="assets/sponsors/patrocinador6.png" alt="Patrocinador 6">
+          <img src="assets/sponsors/patrocinador7.png" alt="Patrocinador 7">
+          <img src="assets/sponsors/patrocinador8.png" alt="Patrocinador 8">
+          <img src="assets/sponsors/patrocinador9.png" alt="Patrocinador 9">
+          <img src="assets/sponsors/patrocinador10.png" alt="Patrocinador 10">
+          <img src="assets/sponsors/patrocinador11.png" alt="Patrocinador 11">
+          <img src="assets/sponsors/patrocinador12.png" alt="Patrocinador 12">
+          <img src="assets/sponsors/patrocinador13.png" alt="Patrocinador 13">
         </div>
-    </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/service-worker.js')
-              .then(function(registration) {
-                console.log('Service Worker registrado com sucesso:', registration);
-              }, function(err) {
-                console.log('Falha ao registrar o Service Worker:', err);
-              });
-          });
-        }
-      </script>      
-</body>
+        <button class="next">&#10095;</button>
+      </div>
+    </section>
+    
+        <!-- Sección Sobre Nosotros -->
+    <section id="about">
+    </section>
+    
+  </main>
 
+  <!-- Player Embed RadiosPlay -->
+<iframe src="https://radiosplay.com.ar/player-gratis/reproductor.php?panel=zenoradio&stream=https%3A%2F%2Fstream.zeno.fm%2Ftr4u2w53sxhvv&nombre=La+87%2C+La+Primera&logo=https%3A%2F%2Fwww.la87hn.com%2Fimg%2Flaprimera_logo_trans512.png&bgcolor=%231e1e1e&textcolor=%23ffffff&social_fb=https%3A%2F%2Fwww.facebook.com%2Fla87laprimera%3F_rdc%3D1%26amp%3B_rdr%23&social_ig=https%3A%2F%2Fwww.instagram.com%2Fla87laprimera%2F&social_tk=&social_x=https%3A%2F%2Fx.com%2Fla87fm&social_yt=&social_wa=50432639354&social_twitch=&social_discord=&social_soundcloud=&custom_link_url=https%3A%2F%2Ftunein.com%2Fradio%2FLa-87-La-Primera-s346424%2F&custom_link_icon=tunein&social_color=%23ffffff&social_align=center&app_android=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.la87hn.la87laprimera%26amp%3Bhl%3Den&app_iphone=&app_windows=&app_align=right&app_android_restrict=0&app_iphone_restrict=0&app_windows_restrict=0&show_title=1&show_cover=1&show_volume=1&autoplay=1&branding_text=%C2%A9+La+87%2C+La+Primera&bgimg=https%3A%2F%2Fradiosplay.com.ar%2Fplayer-gratis%2Ffondos%2Ffondo_68bb4db0867a11.64450089.jpg&bgsize=cover&bgpos=center+center" frameborder="0" allow="autoplay" scrolling="no" style="width:100%; height:75px; position:fixed; bottom:0; left:0; z-index:999;"></iframe>
+  
+  <script src="app.js"></script>
+</body>
 </html>
