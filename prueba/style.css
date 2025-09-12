@@ -9,7 +9,7 @@ body {
 
 header {
   background: linear-gradient(90deg, #f39c12, #27ae60);
-  padding: 0.01px;
+  padding: 20px;
   color: white;
 }
 
@@ -28,7 +28,7 @@ header .logo {
 }
 
 .controls button {
-  background: rgb(3, 100, 15);
+  background: #27ae60;
   border: none;
   color: white;
   padding: 10px 15px;
@@ -43,13 +43,13 @@ header .logo {
 }
 
 .social {
-  margin: 6px;
+  margin: 20px;
 }
 
 .social a {
   margin: 0 10px;
-  font-size: 50px;
-  color: rgb(3, 100, 15);
+  font-size: 30px;
+  color: #333;
   text-decoration: none;
 }
 
@@ -91,7 +91,7 @@ header .logo {
   transform: translateY(-50%);
   z-index: 99999 !important;
   pointer-events: auto;
-  background: rgb(3, 100, 15);
+  background: rgba(243, 156, 18, 0.9);
   border: none;
   color: white;
   font-size: 30px;
