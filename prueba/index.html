@@ -1,216 +1,220 @@
-<!DOCTYPE html><html lang="es">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La 87, La Primera 87.7 FM</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>La 87, La Primera — 87.7 FM</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body {
-      background: linear-gradient(180deg, #004aad, #00a884);
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    /* ----------------- Palette & layout ----------------- */
+    :root{--yellow:#ffd700;--green:#22c55e;--blue:#0ea5e9;--orange:#fb923c;--card-bg:rgba(255,255,255,0.06)}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{display:flex;align-items:center;justify-content:center;padding:18px;background:#071126;overflow:auto}
+
+    /* Animated radial gradient background */
+    .bg-animated{
+      position:fixed;inset:0;z-index:-1;overflow:hidden;
+      background: radial-gradient(800px 400px at 10% 20%, rgba(255,215,0,0.12), transparent 10%),
+                  radial-gradient(700px 350px at 85% 70%, rgba(34,197,94,0.08), transparent 10%),
+                  radial-gradient(900px 450px at 50% 50%, rgba(14,165,233,0.06), transparent 10%),
+                  linear-gradient(180deg,#001028 0%,#04162a 100%);
+      animation: floatBG 18s ease-in-out infinite;
+      filter: blur(10px);
     }
-    .player-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      padding: 2rem;
-      margin: 1rem;
+    @keyframes floatBG{0%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.02)}100%{transform:translateY(0) scale(1)}}
+
+    /* Card */
+    .player-wrap{width:100%;max-width:1100px;background:var(--card-bg);border-radius:18px;padding:20px;box-shadow:0 10px 40px rgba(2,6,23,0.7);backdrop-filter:blur(6px);}
+    .brand-row{display:flex;align-items:center;gap:16px}
+    .brand-logo{height:72px;width:auto}
+    .station-title{font-weight:700;font-size:1.35rem}
+    .freq{color:var(--yellow);font-weight:800}
+
+    /* Player area */
+    .cover{max-width:360px;width:100%;border-radius:12px;overflow:hidden}
+    .cover img{width:100%;height:100%;object-fit:cover;display:block}
+    .meta{padding:10px}
+    .meta .song{font-weight:700;font-size:1.05rem}
+    .meta .artist{color:rgba(255,255,255,0.75);font-size:0.95rem}
+
+    .controls{display:flex;align-items:center;gap:12px}
+    .play-btn{background:linear-gradient(90deg,var(--yellow),var(--orange));border-radius:999px;padding:10px 18px;border:0;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,0.35);cursor:pointer}
+    .icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:8px;color:#fff}
+
+    /* Sponsors */
+    .sponsors{margin-top:18px}
+    .sponsors img{height:84px;object-fit:contain;border-radius:8px}
+
+    @media(min-width:992px){
+      .layout{display:grid;grid-template-columns:360px 1fr;gap:22px}
     }
-    #album-art {
-      width: 100%;
-      max-width: 250px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+    @media(max-width:991px){
+      .brand-row{justify-content:center}
+      .cover{max-width:500px}
     }
-    .sponsor-carousel img {
-      height: 80px;
-      object-fit: contain;
-      margin: 0 1rem;
-      filter: drop-shadow(0 0 4px rgba(0,0,0,0.5));
-    }
-    footer {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-top: 1rem;
-    }
+
+    /* small helper */
+    .muted{color:rgba(255,255,255,0.75)}
   </style>
 </head>
 <body>
-  <div class="container text-center py-4">
-    <h1 class="fw-bold">La 87, La Primera <span class="text-warning">87.7 FM</span></h1>
-    <div class="player-card mx-auto">
-      <img id="album-art" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/No-image-placeholder.png" alt="Carátula">
-      <h3 id="song-title" class="mt-3">Cargando...</h3>
-      <audio id="audio-player" controls autoplay style="width:100%; margin-top:1rem; border-radius:10px;">
-        <source src="https://stream.zeno.fm/tr4u2w53sxhvv" type="audio/mpeg">
-        Tu navegador no soporta audio HTML5.
-      </audio>
-    </div><div id="sponsorCarousel" class="carousel slide sponsor-carousel" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Generic-company-logo.png/320px-Generic-company-logo.png" class="d-block mx-auto" alt="Patrocinador 1">
+  <div class="bg-animated" aria-hidden="true"></div>
+
+  <div class="player-wrap container">
+    <div class="brand-row mb-3">
+      <img id="brandLogo" src="https://www.la87hn.com/assets/laprimera_logo_trans512.png" alt="La 87" class="brand-logo">
+      <div>
+        <div class="station-title">La 87, La Primera <span class="freq">87.7 FM</span></div>
+        <div class="muted">Reproducción continua · Autoplay inteligente · Carátula automática</div>
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Logo_2023.png/320px-Logo_2023.png" class="d-block mx-auto" alt="Patrocinador 2">
+
+    <div class="layout">
+      <!-- Left: cover + controls -->
+      <div>
+        <div class="cover shadow-sm">
+          <img id="albumArt" src="https://www.la87hn.com/assets/laprimera_logo_trans512.png" alt="Carátula">
+        </div>
+        <div class="meta mt-3 text-start">
+          <div id="nowPlaying" class="song">Cargando transmisión...</div>
+          <div id="nowArtist" class="artist">La 87, La Primera — 87.7 FM</div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-start mt-3 controls">
+          <button id="playPause" class="play-btn">⏯️ Reproducir</button>
+          <button id="muteBtn" class="icon-btn">🔊</button>
+          <label class="ms-2 muted">Vol</label>
+          <input id="vol" type="range" min="0" max="1" step="0.01" value="0.9" style="width:140px;margin-left:8px">
+        </div>
+
+        <div class="sponsors">
+          <div id="sponsorRow" class="d-flex gap-3 justify-content-center flex-wrap">
+            <img src="https://www.la87hn.com/assets/sponsors/patrocinador2.png" alt="Patrocinador 1">
+            <img src="https://www.la87hn.com/assets/sponsors/patrocinador3.png" alt="Patrocinador 2">
+            <img src="https://www.la87hn.com/assets/sponsors/patrocinador7.png" alt="Patrocinador 3">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: info, listeners, progress -->
+      <div>
+        <div class="card" style="background:transparent;border:0">
+          <div class="card-body text-start">
+            <h5 class="card-title">Estado de la transmisión</h5>
+            <p class="card-text"> <strong id="connState">Conectando...</strong></p>
+            <p class="muted">Stream: <span id="streamUrl">https://stream.zeno.fm/tr4u2w53sxhvv</span></p>
+            <p class="muted">Oyentes estimados: <strong id="listeners">--</strong></p>
+            <div class="mt-3">
+              <div class="progress" style="height:10px;background:rgba(255,255,255,0.06)">
+                <div id="prog" class="progress-bar" role="progressbar" style="width:0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <small class="d-block mt-3 muted">Si la reproducción no inicia en móviles, por favor tocar el botón ▶️</small>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h6>Patrocinadores</h6>
+          <div class="mt-2 muted">Apoya a nuestros programas</div>
+        </div>
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Placeholder_logo.svg/320px-Placeholder_logo.svg.png" class="d-block mx-auto" alt="Patrocinador 3">
-    </div>
+
   </div>
-</div>
 
-<footer>
-  <p>© 2025 La 87, La Primera 87.7 FM | Reproducción continua con reconexión automática</p>
-</footer>
+  <!-- Hidden audio element (visible controls not needed because we handle controls) -->
+  <audio id="audio" crossorigin="anonymous"></audio>
 
-  </div>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  <script>
-    const CONFIG = {
-      streamUrl: 'https://stream.zeno.fm/tr4u2w53sxhvv',
-      metadataEndpoints: [
-        'https://stream.zeno.fm/tr4u2w53sxhvv',
-        'https://stream.zeno.fm/status-json.xsl'
-      ]
-    };
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ---------- CONFIG ----------
+    const STREAM_URL = 'https://stream.zeno.fm/tr4u2w53sxhvv';
+    const METADATA_CANDIDATES = [
+      'https://stream.zeno.fm/tr4u2w53sxhvv',
+      'https://stream.zeno.fm/tr4u2w53sxhvv/status-json.xsl',
+      'https://stream.zeno.fm/status-json.xsl'
+    ];
+    const METADATA_POLL = 12000; // ms
 
-    const audio = document.getElementById('audio-player');
-    const titleEl = document.getElementById('song-title');
-    const albumArt = document.getElementById('album-art');
+    // ---------- ELEMENTS ----------
+    const audio = document.getElementById('audio');
+    const playPause = document.getElementById('playPause');
+    const muteBtn = document.getElementById('muteBtn');
+    const vol = document.getElementById('vol');
+    const albumArt = document.getElementById('albumArt');
+    const nowPlaying = document.getElementById('nowPlaying');
+    const nowArtist = document.getElementById('nowArtist');
+    const connState = document.getElementById('connState');
+    const listenersEl = document.getElementById('listeners');
+    const prog = document.getElementById('prog');
 
-    // Reconexión automática
-    audio.addEventListener('error', () => {
-      setTimeout(() => {
-        audio.load();
-        audio.play().catch(() => {});
-      }, 5000);
-    });
+    // initial audio setup
+    audio.src = STREAM_URL;
+    audio.preload = 'none';
+    audio.volume = parseFloat(vol.value);
+    audio.autoplay = false; // we'll try programmatic autoplay with mute strategy
 
-    // Intentar obtener metadatos Icecast/SHOUTcast
-    async function fetchMetadata() {
-      try {
-        for (const url of CONFIG.metadataEndpoints) {
-          const res = await fetch(url, {mode:'cors'});
-          const text = await res.text();
-          const match = text.match(/StreamTitle='([^']+)'/);
-          if (match && match[1]) {
-            titleEl.textContent = match[1];
-            return;
-          }
-        }
-        titleEl.textContent = 'Transmitiendo en vivo';
-      } catch {
-        titleEl.textContent = 'Transmitiendo en vivo';
-      }
+    // UI helpers
+    function setPlayingUI(playing){ playPause.textContent = playing ? '⏸️ Pausar' : '▶️ Reproducir'; connState.textContent = playing ? 'Reproduciendo' : 'Pausado'; }
+
+    // Play/pause logic
+    async function toggle(){
+      if(audio.paused){
+        try{ await audio.play(); setPlayingUI(true); } catch(e){ console.warn('Autoplay blocked:', e); }
+      } else { audio.pause(); setPlayingUI(false); }
     }
+    playPause.addEventListener('click', ()=>{ toggle(); audio.muted=false; });
 
-    fetchMetadata();
-    setInterval(fetchMetadata, 15000);
-  </script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  <script>
-    /* CONFIG */
-    const CONFIG = {
-      streamUrl: 'https://stream.zeno.fm/tr4u2w53sxhvv',
-      sponsors: [
-        'https://www.la87hn.com/assets/sponsors/patrocinador2.png',
-        'https://www.la87hn.com/assets/sponsors/patrocinador3.png',
-        'https://www.la87hn.com/assets/sponsors/patrocinador7.png'
-      ],
-      logoUrl: 'https://www.la87hn.com/assets/laprimera_logo_trans512.png',
-      metadataCandidates: [
-        // common ICY/JSON endpoints to try (best-effort)
-        'https://stream.zeno.fm/tr4u2w53sxhvv',
-        'https://stream.zeno.fm/status-json.xsl',
-        'https://stream.zeno.fm/tr4u2w53sxhvv/status-json.xsl'
-      ],
-      metadataPollSec: 12
-    };
+    muteBtn.addEventListener('click', ()=>{ audio.muted = !audio.muted; muteBtn.textContent = audio.muted ? '🔇' : '🔊'; });
+    vol.addEventListener('input', ()=>{ audio.volume = parseFloat(vol.value); });
 
-    // Elements
-    const audio = document.getElementById('audio-player');
-    const titleEl = document.getElementById('song-title');
-    const albumArt = document.getElementById('album-art');
-    const brandLogo = document.getElementById('brandLogo');
-
-    // Apply branding
-    brandLogo.src = CONFIG.logoUrl;
-
-    // Sponsors carousel render
-    const carouselInner = document.querySelector('#sponsorCarousel .carousel-inner');
-    carouselInner.innerHTML = '';
-    CONFIG.sponsors.forEach((src, idx) => {
-      const item = document.createElement('div');
-      item.className = 'carousel-item' + (idx === 0 ? ' active' : '');
-      const img = document.createElement('img');
-      img.src = src; img.className = 'd-block mx-auto'; img.alt = `Patrocinador ${idx+1}`;
-      item.appendChild(img);
-      carouselInner.appendChild(item);
-    });
-
-    // Autoplay strategy: attempt muted autoplay first (max compatibility), then unmute on user gesture or after short time
+    // Autoplay strategy: try muted autoplay then unmute
     async function tryAutoplay(){
+      audio.muted = true;
       try{
-        audio.muted = true; // increases browser autoplay acceptance
         await audio.play();
-        // temporarily unmute (may be blocked); if it fails, remain muted until user interacts
-        setTimeout(() => { audio.muted = false; }, 800);
+        setPlayingUI(true);
+        // attempt to unmute shortly after
+        setTimeout(()=>{ audio.muted = false; muteBtn.textContent = '🔊'; }, 800);
       }catch(e){
-        console.warn('Autoplay blocked, waiting user interaction.', e);
+        setPlayingUI(false);
+        console.warn('Autoplay blocked by browser');
       }
     }
 
-    // Metadata polling: try multiple strategies to extract a title
-    async function probeMetadata(){
-      // 1) Attempt endpoints that often return Icecast/SHOUTcast JSON
-      for(const url of CONFIG.metadataCandidates){
-        try{
-          const res = await fetch(url, {cache:'no-store', mode:'cors'});
-          if(!res.ok) continue;
-          const ct = res.headers.get('content-type') || '';
-          if(ct.includes('application/json') || ct.includes('text/json')){
-            const j = await res.json();
-            // try different common structures
-            if(j.icestats && j.icestats.source){
-              const src = Array.isArray(j.icestats.source)? j.icestats.source[0] : j.icestats.source;
-              const title = src.title || src.song || src.NowPlaying || '';
-              if(title) return parseTitleArtist(title);
-            }
-          }
-          // fallback: text search for StreamTitle='...'
-          const txt = await res.text();
-          const m = txt.match(/StreamTitle='([^']+)'/i) || txt.match(/<title>([^<]+)<\/title>/i);
-          if(m && m[1]) return parseTitleArtist(m[1]);
-        }catch(err){ /* ignore and continue */ }
-      }
-
-      // 2) As last resort, try to read media tags using Media Session API (if available) while playing
-      if('mediaSession' in navigator && navigator.mediaSession.metadata){
-        const meta = navigator.mediaSession.metadata;
-        if(meta.title) return { title: meta.title, artist: meta.artist || '' };
-      }
-
-      return null;
+    // Reconnect strategy
+    let reconnecting = false;
+    function scheduleReconnect(){ if(reconnecting) return; reconnecting = true; connState.textContent='Reconectando...';
+      const t = setInterval(async ()=>{
+        try{ audio.load(); await audio.play(); reconnecting=false; clearInterval(t); setPlayingUI(true); connState.textContent='Reproduciendo'; }
+        catch(e){ /* sigue intentando */ }
+      }, 6000);
     }
 
+    audio.addEventListener('error', ()=>{ scheduleReconnect(); });
+    audio.addEventListener('stalled', ()=>{ scheduleReconnect(); });
+    audio.addEventListener('ended', ()=>{ scheduleReconnect(); });
+
+    // visual progress animation
+    let progDir = 1;
+    setInterval(()=>{ let cur = parseFloat(prog.style.width) || 0; if(cur>=100) progDir=-1; if(cur<=0) progDir=1; cur += progDir*0.8; prog.style.width = cur + '%'; }, 100);
+
+    // ---------- Metadata & artwork logic ----------
     function parseTitleArtist(raw){
-      // common formats: "Artist - Title" or "Title - Artist"; try both
-      let title = raw; let artist = '';
+      if(!raw) return null;
+      raw = raw.replace(/\u0000/g,'').trim();
+      // common patterns
+      let artist = '', title = raw;
       if(raw.includes(' - ')){
         const parts = raw.split(' - ');
-        // heuristics: if first part contains numbers or 'ft.' assume Artist-Title else Title-Artist
-        if(parts[0].length < 40 && parts[1].length < 60){
-          // prefer Artist - Title
-          artist = parts[0]; title = parts.slice(1).join(' - ');
-        } else { title = raw; }
+        // assume Artist - Title
+        artist = parts[0].trim(); title = parts.slice(1).join(' - ').trim();
       }
-      return { title: title.trim(), artist: (artist||'').trim() };
+      return { title, artist };
     }
 
-    // iTunes search to fetch artwork
-    async function fetchItunesArt(artist, title){
+    async function fetchItunesArt(artist,title){
       try{
         const q = encodeURIComponent(`${artist} ${title}`.trim());
         const url = `https://itunes.apple.com/search?term=${q}&entity=song&limit=1`;
@@ -218,36 +222,65 @@
         if(!res.ok) return null;
         const j = await res.json();
         if(j.resultCount && j.results && j.results[0]){
-          // artworkUrl100 -> replace 100x100 with 600x600
           const art = j.results[0].artworkUrl100;
-          return art ? art.replace('100x100bb.jpg', '600x600bb.jpg') : null;
+          return art ? art.replace('100x100bb.jpg','600x600bb.jpg') : null;
         }
-        return null;
-      }catch(e){ return null; }
+      }catch(e){ }
+      return null;
     }
 
-    // Update UI given metadata
-    async function updateNowPlaying(){
+    async function probeMetadata(){
+      // try candidate endpoints
+      for(const url of METADATA_CANDIDATES){
+        try{
+          const res = await fetch(url, {cache:'no-store', mode:'cors'});
+          if(!res.ok) continue;
+          const ct = res.headers.get('content-type') || '';
+          if(ct.includes('application/json') || ct.includes('text/json')){
+            const j = await res.json();
+            if(j.icestats && j.icestats.source){
+              const src = Array.isArray(j.icestats.source)? j.icestats.source[0] : j.icestats.source;
+              const raw = src.title || src.song || src.NowPlaying || '';
+              if(raw) return parseTitleArtist(raw);
+            }
+          }
+          const txt = await res.text();
+          const m = txt.match(/StreamTitle='([^']+)'/i) || txt.match(/<title>([^<]+)<\/title>/i) || txt.match(/now playing:\s*([^<\n]+)/i);
+          if(m && m[1]) return parseTitleArtist(m[1]);
+        }catch(e){ /* ignore */ }
+      }
+      return null;
+    }
+
+    async function refreshNowPlaying(){
       const meta = await probeMetadata();
       if(meta){
-        titleEl.textContent = meta.title + (meta.artist ? ' — ' + meta.artist : '');
-        // try itunes for artwork
+        nowPlaying.textContent = meta.title || 'Reproduciendo';
+        nowArtist.textContent = meta.artist || 'La 87, La Primera';
+        // artwork attempt
         const art = await fetchItunesArt(meta.artist, meta.title);
-        if(art) albumArt.src = art; else albumArt.src = CONFIG.logoUrl;
+        if(art){ albumArt.src = art; }
+        else { albumArt.src = 'https://www.la87hn.com/assets/laprimera_logo_trans512.png'; }
       } else {
-        titleEl.textContent = 'Transmitiendo en vivo — La 87, La Primera 87.7 FM';
-        albumArt.src = CONFIG.logoUrl;
+        nowPlaying.textContent = 'Transmitiendo en vivo';
+        nowArtist.textContent = 'La 87, La Primera — 87.7 FM';
+        albumArt.src = 'https://www.la87hn.com/assets/laprimera_logo_trans512.png';
       }
     }
 
-    // Start polling metadata
-    updateNowPlaying();
-    setInterval(updateNowPlaying, CONFIG.metadataPollSec * 1000);
+    // start polling metadata
+    refreshNowPlaying();
+    setInterval(refreshNowPlaying, METADATA_POLL);
 
-    // Wire user gesture to unmute if autoplay blocked
-    document.addEventListener('click', ()=>{ if(audio.paused) audio.play().catch(()=>{}); audio.muted=false; });
+    // try autoplay on load
+    window.addEventListener('load', ()=>{ tryAutoplay(); });
 
-    // Initial autoplay attempt
-    tryAutoplay();
+    // expose for debugging
+    window.__la87_player = { audio };
 
-  </script></body>
+    // Accessibility: ensure play toggles on keyboard Enter/Space
+    playPause.addEventListener('keyup', (e)=>{ if(e.key==='Enter' || e.key===' ') toggle(); });
+
+  </script>
+</body>
+</html>
