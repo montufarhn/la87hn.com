@@ -193,16 +193,23 @@
       playPause.textContent = playing ? '⏸️ Pausar' : '⏯️ Reproducir';
     }
 
-    let audioCtxInitialized = false;
+    // Inicializar el contexto de audio, pero estará suspendido hasta la interacción del usuario.
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    let visualizerInitialized = false;
+
     async function togglePlay(){
       if(audio.paused){
         try{
+          // Reanudar el contexto de audio si está suspendido (crucial para iOS)
+          if (audioCtx.state === 'suspended') {
+            await audioCtx.resume();
+          }
           await audio.play();
           setPlayingUI(true);
           // Inicializar el contexto de audio en la primera interacción del usuario
-          if (!audioCtxInitialized) {
+          if (!visualizerInitialized) {
             initAudioVisualizer();
-            audioCtxInitialized = true;
+            visualizerInitialized = true;
           }
         } catch(e) {
           console.warn('Autoplay bloqueado:', e); setPlayingUI(false);
@@ -226,6 +233,11 @@
       try{
         await audio.play();
         setPlayingUI(true);
+        // Si el autoplay funciona, también intentamos iniciar el visualizador
+        if (!visualizerInitialized && audioCtx.state !== 'suspended') {
+          initAudioVisualizer();
+          visualizerInitialized = true;
+        }
         setTimeout(()=>{ audio.muted=false; muteBtn.textContent='🔊'; },700);
       }catch(e){
         console.warn('Autoplay blocked by browser.', e);
@@ -312,7 +324,6 @@
     }
 
     function initAudioVisualizer() {
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const analyser = audioCtx.createAnalyser();
       const source = audioCtx.createMediaElementSource(audio);
       source.connect(analyser);
