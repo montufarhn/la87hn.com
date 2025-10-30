@@ -279,6 +279,15 @@
           const raw = j?.streamTitle || 'Transmitiendo en vivo';
           const parsed = splitArtistTitle(raw);
 
+          // Actualizar el título de la página
+          if (parsed.artist && parsed.title && parsed.title !== 'Transmitiendo en vivo') {
+            document.title = `${parsed.artist} - ${parsed.title}`;
+          } else if (parsed.title && parsed.title !== 'Transmitiendo en vivo') {
+            document.title = parsed.title;
+          } else {
+            document.title = 'La 87, La Primera - 87.7 FM';
+          }
+
           // Marquee dinámico
           songTitle.textContent = parsed.title;
           songTitle.classList.remove('marquee');
